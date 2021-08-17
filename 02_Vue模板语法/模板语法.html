@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/vue.js"></script>
+  <title>模板语法</title>
+</head>
+<body>
+  <!-- 
+     小结：在Vue中有两种模板语法：分别为插值语法和指令语法
+     1、插值语法：
+         功能：用于解析标签体内容
+         写法：{{xxxx}},xxx会作为表达式去解析，且可以自动读取到data中的属性
+    2、指令语法：
+        功能：用于解析标签（标签体，标签属性，事件绑定。。。。）
+        写法：：v-bind:href="xxxxxx" 或  简写为:
+        备注：Vue中有很多的指令，此处我们只是拿v-bind举个例子
+
+
+   -->
+  <div id="root">
+    <h1>插值语法</h1>
+    <h2>学校名称：{{school.name}}</h2>
+    <h2>学校地址：{{school.address}}</h2>
+    <hr/>
+    <h1>指令语法</h1>
+    <!-- 思考：如何动态指定href -->
+    <a href="school.url">嘉兴职业技术学院</a><br/>
+    <a href="{{school.url}}">嘉兴职业技术学院</a><br/>
+    <a v-bind:href="school.url">嘉兴职业技术学院</a><br/>
+    <a :href="school.url">嘉兴职业技术学院</a><br/>
+    
+  </div>
+  <script>
+    new Vue({
+      el:'#root',
+      data:{
+        school:{
+          name:'嘉兴职业技术学院',
+          address:'嘉兴市桐乡大道325号',
+          url:'http://www.jxvtc.edu.cn/'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
