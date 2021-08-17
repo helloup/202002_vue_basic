@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>new 关键字</title>
+</head>
+<body>
+  <script>
+    function demo(obj){
+      this.x=obj.a
+    }
+
+    demo({a:234})
+    //如何访问x？
+    console.log(window.x)
+
+    const d=new demo({a:345})
+    //如何访问x？
+    console.log(d.x)
+    //重要结论：使用new调用demo时，demo中的this为demo的实例对象
+  </script>
+</body>
+</html>
